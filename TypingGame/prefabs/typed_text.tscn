@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmo4cwbu7k01v"]
+
+[ext_resource type="Script" uid="uid://b80h4yy4kr3pp" path="res://scripts/typed_text.gd" id="1_t556v"]
+[ext_resource type="PackedScene" uid="uid://cof0jem71b20e" path="res://prefabs/letter.tscn" id="2_t556v"]
+
+[node name="TypedText" type="HBoxContainer" unique_id=198717968]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1904.0
+offset_bottom = -1019.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_t556v")
+
+[node name="LetterContainer" parent="." unique_id=1758811766 instance=ExtResource("2_t556v")]
+layout_mode = 2

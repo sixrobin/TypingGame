@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8gr5yv106nep"]
+
+[ext_resource type="Script" uid="uid://yanilpgem8m1" path="res://scripts/enemy.gd" id="1_jg002"]
+[ext_resource type="Script" uid="uid://dvlp4dn3c5y4w" path="res://scripts/shake.gd" id="2_4ginn"]
+[ext_resource type="Texture2D" uid="uid://cv83byyc4cgay" path="res://textures/monsters.png" id="3_bl6dq"]
+[ext_resource type="PackedScene" uid="uid://dmo4cwbu7k01v" path="res://prefabs/typed_text.tscn" id="4_d7vdu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l1iws"]
+radius = 26.476404
+
+[node name="Demon" type="Node2D" unique_id=752924517]
+script = ExtResource("1_jg002")
+text = "hvkcuamsp"
+speed = 40.0
+
+[node name="Shake" type="Node2D" parent="." unique_id=866042900]
+script = ExtResource("2_4ginn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Shake" unique_id=394860351]
+texture_filter = 1
+position = Vector2(0, 10.354996)
+scale = Vector2(3.3125, 3.3125002)
+texture = ExtResource("3_bl6dq")
+offset = Vector2(0, -9.655)
+region_enabled = true
+region_rect = Rect2(32.29767, 351.62048, 32.566452, 32.7016)
+
+[node name="TypedText" parent="Shake" unique_id=198717968 instance=ExtResource("4_d7vdu")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -8.0
+offset_top = -94.0
+offset_right = 8.0
+offset_bottom = -78.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2079455721]
+position = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=489076669]
+shape = SubResource("CircleShape2D_l1iws")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cof0jem71b20e"]
+
+[ext_resource type="Script" uid="uid://bfp2b2pg0xpwd" path="res://scripts/letter.gd" id="1_vh1o1"]
+[ext_resource type="Theme" uid="uid://cv5pownlgmrqu" path="res://theme_default.tres" id="2_kpt0s"]
+
+[node name="LetterContainer" type="Control" unique_id=1758811766]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vh1o1")
+
+[node name="LetterAnimator" type="Control" parent="." unique_id=1915890853]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Letter" type="RichTextLabel" parent="LetterAnimator" unique_id=2090651052]
+clip_contents = false
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_kpt0s")
+bbcode_enabled = true
+text = "A"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

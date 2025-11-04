@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://i8t7mo3v711m"]
+
+[ext_resource type="Theme" uid="uid://cv5pownlgmrqu" path="res://theme_default.tres" id="1_avbbp"]
+
+[node name="PlayerLetter" type="RichTextLabel" unique_id=287017044]
+modulate = Color(0, 0.6666667, 1, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme = ExtResource("1_avbbp")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+theme_override_font_sizes/mono_font_size = 48
+text = "A"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

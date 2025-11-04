@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cv5pownlgmrqu"]
+
+[ext_resource type="FontFile" uid="uid://caurb53l0pvn7" path="res://fonts/Tendang.ttf" id="1_7s2d2"]
+[ext_resource type="FontFile" uid="uid://6821nqihpryl" path="res://fonts/KOMIKAHB.ttf" id="2_cfhu3"]
+
+[resource]
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 16
+RichTextLabel/font_sizes/bold_font_size = 32
+RichTextLabel/font_sizes/bold_italics_font_size = 32
+RichTextLabel/font_sizes/italics_font_size = 32
+RichTextLabel/font_sizes/mono_font_size = 32
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/bold_font = ExtResource("1_7s2d2")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_7s2d2")
+RichTextLabel/fonts/italics_font = ExtResource("1_7s2d2")
+RichTextLabel/fonts/mono_font = ExtResource("1_7s2d2")
+RichTextLabel/fonts/normal_font = ExtResource("2_cfhu3")
