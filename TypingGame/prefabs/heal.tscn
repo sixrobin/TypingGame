@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://1jaa1wjk16kd"]
+
+[ext_resource type="Script" uid="uid://t1k4fff6n56v" path="res://scripts/heal.gd" id="1_20i43"]
+[ext_resource type="Texture2D" uid="uid://dwqyfnul418jd" path="res://textures/items.png" id="1_p2b7b"]
+[ext_resource type="PackedScene" uid="uid://dmo4cwbu7k01v" path="res://prefabs/typed_text.tscn" id="4_myb5r"]
+
+[node name="Heal" type="Node2D" unique_id=752924517]
+script = ExtResource("1_20i43")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=394860351]
+texture_filter = 1
+position = Vector2(0, 10.354996)
+scale = Vector2(3.3125, 3.3125002)
+texture = ExtResource("1_p2b7b")
+offset = Vector2(0, -9.655)
+region_enabled = true
+region_rect = Rect2(4.1888123, 547.94507, 22.112267, 24.010742)
+
+[node name="TypedText" parent="." unique_id=198717968 instance=ExtResource("4_myb5r")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -8.0
+offset_top = -86.0
+offset_right = 8.0
+offset_bottom = -70.0
+grow_horizontal = 1
+grow_vertical = 1

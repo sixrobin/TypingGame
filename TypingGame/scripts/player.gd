@@ -9,6 +9,11 @@ extends Node2D
 var cast_letter_prefab: PackedScene = preload("res://prefabs/cast_letter.tscn")
 
 
+func heal(_amount: int) -> void:
+	health = min(health + _amount, 100)
+	health_bar.value = health
+
+
 func take_damage(_damage: int) -> void:
 	health = max(health - _damage, 0)
 	health_bar.value = health

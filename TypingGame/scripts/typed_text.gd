@@ -50,7 +50,8 @@ func on_letter_typed(_letter: String) -> void:
 	var next_letter: Letter = letters[next_letter_index]
 	if next_letter.on_letter_typed(_letter):
 		next_letter_index += 1
-		letter_typed.call()
+		if letter_typed:
+			letter_typed.call()
 	
 	is_complete = next_letter_index == letters.size()
 	if is_complete:

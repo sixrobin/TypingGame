@@ -34,14 +34,14 @@ func spawn_enemy() -> Enemy:
 	var topside: bool = randf() < 0.5
 	var spawn_position: Vector2
 	if topside:
-		spawn_position = Vector2(randf_range(-1000, 1000), -500 if randf() < 0.5 else 500)
+		spawn_position = Vector2(randf_range(-1100, 1100), -600 if randf() < 0.5 else 600)
 	else:
-		spawn_position = Vector2(-1000 if randf() < 0.5 else 1000, randf_range(-500, 500))
+		spawn_position = Vector2(-1100 if randf() < 0.5 else 1100, randf_range(-600, 600))
 	
 	enemy_instance.position = spawn_position
 	enemy_instance.set_target(player)
 	enemy_instance.killed.connect(on_enemy_killed)
-	add_child(enemy_instance)
+	Game.instance.add_child(enemy_instance)
 	return enemy_instance
 
 
@@ -53,7 +53,8 @@ func on_enemy_killed(_enemy: Enemy) -> void:
 func _ready() -> void:
 	for weight in enemy_prefabs.values():
 		total_enemies_weight += weight
-	print(total_enemies_weight)
+	
+	await get_tree().create_timer(0.5).timeout
 	
 	for i in 20:
 		spawn_enemy()

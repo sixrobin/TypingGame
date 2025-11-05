@@ -38,6 +38,12 @@ func on_letter_typed():
 
 func on_text_completed():
 	kill()
+	
+	if randf() < 0.01:
+		var heal_prefab: PackedScene = preload("res://prefabs/heal.tscn")
+		var heal_instance: Heal = heal_prefab.instantiate() as Heal
+		Game.instance.add_child(heal_instance)
+		heal_instance.global_position = global_position
 
 
 func kill() -> void:
