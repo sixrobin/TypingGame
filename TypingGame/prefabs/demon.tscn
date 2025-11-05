@@ -10,7 +10,9 @@ radius = 26.476404
 
 [node name="Demon" type="Node2D" unique_id=752924517]
 script = ExtResource("1_jg002")
-text = "hvkcuamsp"
+text_type = 1
+text = ""
+random_text_size = 8
 speed = 40.0
 
 [node name="Shake" type="Node2D" parent="." unique_id=866042900]
