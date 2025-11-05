@@ -10,6 +10,7 @@ var enemy_prefabs: Dictionary[PackedScene, float] = {
 	preload('res://prefabs/skeleton.tscn'): 2,
 	preload('res://prefabs/slime.tscn'): 4,
 	preload('res://prefabs/demon.tscn') : 0.2,
+	preload('res://prefabs/spider.tscn') : 0.5,
 }
 
 var total_enemies_weight: float = 0
@@ -54,5 +55,5 @@ func _ready() -> void:
 		total_enemies_weight += weight
 	print(total_enemies_weight)
 	
-	for i in 30:
+	for i in 20:
 		spawn_enemy()

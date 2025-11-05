@@ -2,7 +2,18 @@ class_name Enemy
 extends Node2D
 
 
+enum TextType
+{
+	DEFAULT_TEXT,
+	RANDOM,
+}
+
+@export_group("Text")
+@export var text_type: TextType = TextType.DEFAULT_TEXT
 @export var text: String = "enemy"
+@export var random_text_size: int = 1
+
+@export_group("Motion")
 @export var speed: float = 50
 
 @onready var typed_text: TypedText = $Shake/TypedText
@@ -38,7 +49,16 @@ func on_area_entered(area: Area2D) -> void:
 
 
 func _ready() -> void:
-	typed_text.set_text(text)
+	var final_text: String
+	match text_type:
+		TextType.DEFAULT_TEXT:
+			final_text = text
+		TextType.RANDOM:
+			final_text = TypedText.get_random_text(random_text_size)
+		_:
+			final_text = text
+	
+	typed_text.set_text(final_text)
 	typed_text.set_letter_typed(func(): shake.shake(8, 0.1))
 	typed_text.set_completed(kill)
 	

@@ -10,6 +10,14 @@ var letter_typed: Callable
 var completed: Callable
 
 
+static func get_random_text(_size: int) -> String:
+	var all_letters: String = 'abcdefghijklmnopqrstuvwxyz'
+	var result: String = ''
+	for i in _size:
+		result += all_letters[randi() % len(all_letters)]
+	return result
+
+
 func set_letter_typed(_letter_typed: Callable):
 	letter_typed = _letter_typed
 
