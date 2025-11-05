@@ -15,6 +15,7 @@ enum TextType
 
 @export_group("Motion")
 @export var speed: float = 50
+@export var recoil: float = 10
 
 @onready var typed_text: TypedText = $Shake/TypedText
 @onready var area_2d: Area2D = $Area2D
@@ -28,6 +29,15 @@ signal killed(_enemy: Enemy)
 
 func set_target(_target: Node2D) -> void:
 	target = _target
+
+
+func on_letter_typed():
+	global_position -= (target.global_position - global_position).normalized() * recoil
+	shake.shake(8, 0.1)
+
+
+func on_text_completed():
+	kill()
 
 
 func kill() -> void:
@@ -59,8 +69,8 @@ func _ready() -> void:
 			final_text = text
 	
 	typed_text.set_text(final_text)
-	typed_text.set_letter_typed(func(): shake.shake(8, 0.1))
-	typed_text.set_completed(kill)
+	typed_text.set_letter_typed(on_letter_typed)
+	typed_text.set_completed(on_text_completed)
 	
 	area_2d.area_entered.connect(on_area_entered)
 
