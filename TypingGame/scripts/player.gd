@@ -18,12 +18,6 @@ func take_damage(_damage: int) -> void:
 
 
 func on_letter_typed(_letter: String) -> void:
-	var letter_regex = RegEx.new()
-	letter_regex.compile("[a-zA-Z]")
-	var matches: Array[RegExMatch] = letter_regex.search_all(_letter)
-	if matches.size() != 1:
-		return
-	
 	var cast_letter_instance: RichTextLabel = cast_letter_prefab.instantiate() as RichTextLabel
 	cast_letter_instance.text = _letter
 	cast_letter_instance.scale = Vector2.ZERO
