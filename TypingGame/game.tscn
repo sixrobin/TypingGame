@@ -7,6 +7,13 @@
 [node name="Game" type="Node2D" unique_id=949287672]
 script = ExtResource("1_80nbo")
 
+[node name="Ground" type="ColorRect" parent="." unique_id=911302226]
+offset_left = -1445.0
+offset_top = -835.0
+offset_right = 1485.0
+offset_bottom = 875.0
+color = Color(0.14406255, 0.14406255, 0.14406255, 1)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1541428423]
 
 [node name="Spawner" type="Node2D" parent="." unique_id=306170411 node_paths=PackedStringArray("player")]
