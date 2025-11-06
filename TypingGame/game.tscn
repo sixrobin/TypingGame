@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuhxylqyig3mc"]
+[gd_scene load_steps=5 format=3 uid="uid://cuhxylqyig3mc"]
 
 [ext_resource type="Script" uid="uid://yswo10a4805b" path="res://scripts/game.gd" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://dwkao3c2i0ydt" path="res://prefabs/player.tscn" id="2_e2o6t"]
 [ext_resource type="Script" uid="uid://hna20giagfrr" path="res://scripts/spawner.gd" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://ccp5t68p8u0ub" path="res://prefabs/level.tscn" id="4_fc0e3"]
 
 [node name="Game" type="Node2D" unique_id=949287672]
 script = ExtResource("1_80nbo")
@@ -23,3 +24,5 @@ player = NodePath("../Player")
 metadata/_custom_type_script = "uid://hna20giagfrr"
 
 [node name="Player" parent="." unique_id=2065508375 instance=ExtResource("2_e2o6t")]
+
+[node name="Level" parent="." unique_id=1668567366 instance=ExtResource("4_fc0e3")]

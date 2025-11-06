@@ -39,6 +39,8 @@ func on_letter_typed():
 func on_text_completed():
 	kill()
 	
+	Game.instance.level.add_score(text.length())
+	
 	if randf() < 0.01:
 		var heal_prefab: PackedScene = preload("res://prefabs/heal.tscn")
 		var heal_instance: Heal = heal_prefab.instantiate() as Heal
@@ -65,16 +67,10 @@ func on_area_entered(area: Area2D) -> void:
 
 
 func _ready() -> void:
-	var final_text: String
-	match text_type:
-		TextType.DEFAULT_TEXT:
-			final_text = text
-		TextType.RANDOM:
-			final_text = TypedText.get_random_text(random_text_size)
-		_:
-			final_text = text
+	if text_type == TextType.RANDOM:
+		text = TypedText.get_random_text(random_text_size)
 	
-	typed_text.set_text(final_text)
+	typed_text.set_text(text)
 	typed_text.set_letter_typed(on_letter_typed)
 	typed_text.set_completed(on_text_completed)
 	

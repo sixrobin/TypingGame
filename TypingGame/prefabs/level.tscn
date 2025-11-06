@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccp5t68p8u0ub"]
+
+[ext_resource type="Script" uid="uid://3hxff07n38om" path="res://scripts/level.gd" id="1_k5ole"]
+[ext_resource type="Script" uid="uid://bh5aj7byyqxul" path="res://scripts/level_view.gd" id="2_848y3"]
+
+[node name="Level" type="Node2D" unique_id=1668567366]
+script = ExtResource("1_k5ole")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1798726120]
+
+[node name="LevelView" type="Control" parent="CanvasLayer" unique_id=584554404 node_paths=PackedStringArray("level")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_848y3")
+level = NodePath("../..")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/LevelView" unique_id=487669383]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 13.0
+grow_horizontal = 2
+color = Color(0.85436195, 0.36058667, 0.5453347, 1)

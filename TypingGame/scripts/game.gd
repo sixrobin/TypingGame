@@ -3,6 +3,7 @@ extends Node2D
 
 
 @onready var player: Player = $Player
+@onready var level: Level = $Level
 
 static var instance: Game = null
 
