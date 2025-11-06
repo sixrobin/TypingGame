@@ -9,13 +9,15 @@ var next_level_score: int = 0
 var last_level_reached: bool = false
 
 var level_scores: Array[int] = [
-	100,
-	250,
-	#500,
-	#800,
-	#1500,
-	#3000,
+	200,
+	500,
+	1000,
+	2000,
+	5000,
+	10000,
 ]
+
+signal current_level_score_changed(_score: int)
 
 
 func add_score(_amount: int) -> void:
@@ -31,6 +33,8 @@ func add_score(_amount: int) -> void:
 		else:
 			current_level_score = 0
 			next_level_score = level_scores[level_index]
+	
+	current_level_score_changed.emit(current_level_score)
 
 
 func _ready() -> void:
