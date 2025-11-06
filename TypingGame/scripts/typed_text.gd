@@ -6,8 +6,9 @@ var letter_prefab: PackedScene = preload('res://prefabs/letter.tscn')
 var letters: Array[Letter] = []
 var next_letter_index: int = 0
 var is_complete: bool = false
-var letter_typed: Callable
-var completed: Callable
+
+signal letter_typed
+signal completed
 
 
 static func get_random_text(_size: int) -> String:
@@ -19,11 +20,11 @@ static func get_random_text(_size: int) -> String:
 
 
 func set_letter_typed(_letter_typed: Callable) -> void:
-	letter_typed = _letter_typed
+	letter_typed.connect(_letter_typed)
 
 
 func set_completed(_completed: Callable) -> void:
-	completed = _completed
+	completed.connect(_completed)
 
 
 func set_text(_text: String) -> void:
@@ -65,11 +66,11 @@ func type_next_letter() -> void:
 
 	next_letter_index += 1
 	if letter_typed:
-		letter_typed.call()
+		letter_typed.emit()
 	
 	is_complete = next_letter_index == letters.size()
 	if is_complete:
-		completed.call()
+		completed.emit()
 	else:
 		letters[next_letter_index].set_as_next_letter(true)
 

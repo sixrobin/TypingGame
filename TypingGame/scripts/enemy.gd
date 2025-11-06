@@ -84,11 +84,11 @@ func on_area_entered(area: Area2D) -> void:
 
 
 func _enter_tree() -> void:
-	Game.instance.enemies.append(self)
+	Game.instance.add_enemy(self)
 
 
 func _exit_tree() -> void:
-	Game.instance.enemies.remove_at(Game.instance.enemies.find(self))
+	Game.instance.remove_enemy(self)
 
 
 func _ready() -> void:

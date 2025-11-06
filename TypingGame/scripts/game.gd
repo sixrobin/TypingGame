@@ -9,6 +9,19 @@ var enemies: Array[Enemy] = []
 
 static var instance: Game = null
 
+signal enemy_added(_enemy: Enemy)
+signal enemy_removed(_enemy: Enemy)
+
+
+func add_enemy(_enemy: Enemy) -> void:
+	enemies.append(_enemy)
+	enemy_added.emit(_enemy)
+
+
+func remove_enemy(_enemy: Enemy) -> void:
+	enemies.remove_at(enemies.find(_enemy))
+	enemy_removed.emit(_enemy)
+
 
 func _enter_tree() -> void:
 	instance = self
