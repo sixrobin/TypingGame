@@ -9,6 +9,7 @@
 script = ExtResource("1_80nbo")
 
 [node name="Ground" type="ColorRect" parent="." unique_id=911302226]
+z_index = -10
 offset_left = -1445.0
 offset_top = -835.0
 offset_right = 1485.0

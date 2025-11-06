@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://33tlwt4asrgt"]
+
+[ext_resource type="Texture2D" uid="uid://db1yeumynoxgc" path="res://textures/white_circle_64.png" id="1_4xevt"]
+
+[node name="BlobShadow" type="Sprite2D" unique_id=857167513]
+self_modulate = Color(0, 0, 0, 0.28235295)
+z_index = -1
+scale = Vector2(0.6875, 0.40625)
+texture = ExtResource("1_4xevt")

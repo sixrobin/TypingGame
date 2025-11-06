@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctyx3asr538qa"]
+[gd_scene load_steps=7 format=3 uid="uid://ctyx3asr538qa"]
 
 [ext_resource type="Script" uid="uid://yanilpgem8m1" path="res://scripts/enemy.gd" id="1_vmc1r"]
 [ext_resource type="Script" uid="uid://dvlp4dn3c5y4w" path="res://scripts/shake.gd" id="2_eruet"]
 [ext_resource type="Texture2D" uid="uid://cv83byyc4cgay" path="res://textures/monsters.png" id="3_1pr0k"]
 [ext_resource type="PackedScene" uid="uid://dmo4cwbu7k01v" path="res://prefabs/typed_text.tscn" id="4_iyvrs"]
+[ext_resource type="PackedScene" uid="uid://33tlwt4asrgt" path="res://prefabs/blob_shadow.tscn" id="5_eruet"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1iws"]
 radius = 12.0415945
@@ -18,6 +19,7 @@ script = ExtResource("2_eruet")
 
 [node name="Sprite2D" type="Sprite2D" parent="Shake" unique_id=394860351]
 texture_filter = 1
+position = Vector2(0, -27)
 scale = Vector2(2.2399988, 2.2399988)
 texture = ExtResource("3_1pr0k")
 offset = Vector2(0, -9.655)
@@ -29,9 +31,9 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = -8.0
-offset_top = -82.0
+offset_top = -109.0
 offset_right = 8.0
-offset_bottom = -66.0
+offset_bottom = -93.0
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -40,3 +42,7 @@ position = Vector2(0, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=489076669]
 shape = SubResource("CircleShape2D_l1iws")
+
+[node name="BlobShadow" parent="." unique_id=857167513 instance=ExtResource("5_eruet")]
+position = Vector2(0, 1.9999999)
+scale = Vector2(0.59375, 0.35085228)

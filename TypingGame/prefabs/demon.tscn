@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8gr5yv106nep"]
+[gd_scene load_steps=7 format=3 uid="uid://c8gr5yv106nep"]
 
 [ext_resource type="Script" uid="uid://yanilpgem8m1" path="res://scripts/enemy.gd" id="1_jg002"]
 [ext_resource type="Script" uid="uid://dvlp4dn3c5y4w" path="res://scripts/shake.gd" id="2_4ginn"]
 [ext_resource type="Texture2D" uid="uid://cv83byyc4cgay" path="res://textures/monsters.png" id="3_bl6dq"]
 [ext_resource type="PackedScene" uid="uid://dmo4cwbu7k01v" path="res://prefabs/typed_text.tscn" id="4_d7vdu"]
+[ext_resource type="PackedScene" uid="uid://33tlwt4asrgt" path="res://prefabs/blob_shadow.tscn" id="5_4ginn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1iws"]
 radius = 26.476404
@@ -43,3 +44,7 @@ position = Vector2(0, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=489076669]
 shape = SubResource("CircleShape2D_l1iws")
+
+[node name="BlobShadow" parent="." unique_id=857167513 instance=ExtResource("5_4ginn")]
+position = Vector2(0, 14)
+scale = Vector2(1.6249999, 0.75000006)
