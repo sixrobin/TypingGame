@@ -5,6 +5,8 @@ extends Node2D
 @onready var player: Player = $Player
 @onready var level: Level = $Level
 
+var enemies: Array[Enemy] = []
+
 static var instance: Game = null
 
 

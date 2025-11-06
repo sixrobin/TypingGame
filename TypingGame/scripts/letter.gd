@@ -21,12 +21,8 @@ func set_validated_color(_color: Color) -> void:
 	validated_color = _color
 
 
-func on_letter_typed(_letter: String) -> bool:
-	if letter != _letter:
-		return false;
-	
-	on_letter_validated()
-	return true
+func try_letter(_letter: String) -> bool:
+	return letter == _letter
 
 
 func on_letter_validated() -> void:

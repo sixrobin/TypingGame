@@ -7,7 +7,7 @@ extends Control
 @onready var progress_bar: ColorRect = $ColorRect
 
 
-func on_current_level_score_changed(_score: int):
+func on_current_level_score_changed(_score: int) -> void:
 	progress_bar.scale.x = _score / float(level.next_level_score)
 
 

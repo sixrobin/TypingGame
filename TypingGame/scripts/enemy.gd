@@ -21,6 +21,12 @@ enum TextType
 @onready var area_2d: Area2D = $Area2D
 @onready var shake: Shake = $Shake
 
+var enemy_drops: Dictionary[PackedScene, float] = {
+	preload('res://prefabs/heal.tscn'): 2,
+	preload('res://prefabs/cross.tscn'): 1,
+}
+
+var total_drops_weight: float = 0
 var is_dead: bool = false
 var target: Node2D = null
 
@@ -31,19 +37,30 @@ func set_target(_target: Node2D) -> void:
 	target = _target
 
 
-func on_letter_typed():
+func on_letter_typed() -> void:
 	global_position -= (target.global_position - global_position).normalized() * recoil
 	shake.shake(8, 0.1)
 
 
-func on_text_completed():
+func on_text_completed() -> void:
 	kill()
 	
 	Game.instance.level.add_score(text.length())
 	
-	if randf() < 0.01:
-		var heal_prefab: PackedScene = preload("res://prefabs/heal.tscn")
-		var heal_instance: Heal = heal_prefab.instantiate() as Heal
+	if randf() < 0.05:
+		var drop_prefab: PackedScene = null
+		var random_weight: float = randf() * total_drops_weight
+		var current_weight: float = 0
+		for drop in enemy_drops.keys():
+			current_weight += enemy_drops[drop]
+			if current_weight >= random_weight:
+				drop_prefab = drop
+				break
+		
+		if not drop_prefab:
+			drop_prefab = drop_prefab.keys()[-1]
+		
+		var heal_instance = drop_prefab.instantiate()
 		Game.instance.add_child(heal_instance)
 		heal_instance.global_position = global_position
 
@@ -66,7 +83,18 @@ func on_area_entered(area: Area2D) -> void:
 		kill()
 
 
+func _enter_tree() -> void:
+	Game.instance.enemies.append(self)
+
+
+func _exit_tree() -> void:
+	Game.instance.enemies.remove_at(Game.instance.enemies.find(self))
+
+
 func _ready() -> void:
+	for weight in enemy_drops.values():
+		total_drops_weight += weight
+	
 	if text_type == TextType.RANDOM:
 		text = TypedText.get_random_text(random_text_size)
 	

@@ -18,11 +18,11 @@ static func get_random_text(_size: int) -> String:
 	return result
 
 
-func set_letter_typed(_letter_typed: Callable):
+func set_letter_typed(_letter_typed: Callable) -> void:
 	letter_typed = _letter_typed
 
 
-func set_completed(_completed: Callable):
+func set_completed(_completed: Callable) -> void:
 	completed = _completed
 
 
@@ -53,10 +53,19 @@ func on_letter_typed(_letter: String) -> void:
 		return
 	
 	var next_letter: Letter = letters[next_letter_index]
-	if next_letter.on_letter_typed(_letter):
-		next_letter_index += 1
-		if letter_typed:
-			letter_typed.call()
+	if next_letter.try_letter(_letter):
+		type_next_letter()
+
+
+func type_next_letter() -> void:
+	if is_complete:
+		return
+	
+	letters[next_letter_index].on_letter_validated()
+
+	next_letter_index += 1
+	if letter_typed:
+		letter_typed.call()
 	
 	is_complete = next_letter_index == letters.size()
 	if is_complete:

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://du1ur0yrekgif"]
+
+[ext_resource type="Script" uid="uid://tq3tca5bf4ea" path="res://scripts/cross.gd" id="1_n4ixc"]
+[ext_resource type="Texture2D" uid="uid://dwqyfnul418jd" path="res://textures/items.png" id="2_jlkf5"]
+[ext_resource type="PackedScene" uid="uid://dmo4cwbu7k01v" path="res://prefabs/typed_text.tscn" id="3_x5ema"]
+
+[node name="Cross" type="Node2D" unique_id=752924517]
+script = ExtResource("1_n4ixc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=394860351]
+texture_filter = 1
+position = Vector2(0, 10.354996)
+scale = Vector2(3.3125, 3.3125002)
+texture = ExtResource("2_jlkf5")
+offset = Vector2(0, -9.655)
+region_enabled = true
+region_rect = Rect2(131.86249, 512.43164, 30.269226, 31.890808)
+
+[node name="TypedText" parent="." unique_id=198717968 instance=ExtResource("3_x5ema")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -8.0
+offset_top = -86.0
+offset_right = 8.0
+offset_bottom = -70.0
+grow_horizontal = 1
+grow_vertical = 1
