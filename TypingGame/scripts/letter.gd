@@ -5,6 +5,7 @@ extends Control
 @onready var animator: Control = $LetterAnimator
 
 var letter: String = ''
+var validated_color: Color = Color.GREEN
 
 
 func set_letter(_letter: String) -> void:
@@ -12,8 +13,12 @@ func set_letter(_letter: String) -> void:
 	($LetterAnimator/Letter as RichTextLabel).text = letter
 
 
-func set_as_next_letter(is_next_letter: bool) -> void:
-	modulate = Color.WHITE if is_next_letter else Color.GRAY
+func set_as_next_letter(_is_next_letter: bool) -> void:
+	modulate = Color.WHITE if _is_next_letter else Color.GRAY
+
+
+func set_validated_color(_color: Color) -> void:
+	validated_color = _color
 
 
 func on_letter_typed(_letter: String) -> bool:
@@ -25,7 +30,7 @@ func on_letter_typed(_letter: String) -> bool:
 
 
 func on_letter_validated() -> void:
-	modulate = Color.GREEN
+	modulate = validated_color
 	
 	animator.pivot_offset = animator.size * 0.5
 	animator.scale = Vector2.ONE * 1.7

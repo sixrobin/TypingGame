@@ -43,6 +43,11 @@ func set_text(_text: String) -> void:
 	call_deferred('center_position')
 
 
+func set_validated_color(_color: Color) -> void:
+	for letter in letters:
+		letter.set_validated_color(_color)
+
+
 func on_letter_typed(_letter: String) -> void:
 	if is_complete:
 		return

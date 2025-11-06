@@ -73,6 +73,7 @@ func _ready() -> void:
 	typed_text.set_text(text)
 	typed_text.set_letter_typed(on_letter_typed)
 	typed_text.set_completed(on_text_completed)
+	typed_text.set_validated_color(Color.RED)
 	
 	area_2d.area_entered.connect(on_area_entered)
 

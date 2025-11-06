@@ -29,7 +29,7 @@ func add_score(_amount: int) -> void:
 		last_level_reached = level_index == level_scores.size()
 		
 		if last_level_reached:
-			print('last level')
+			print('Last level reached')
 		else:
 			current_level_score = 0
 			next_level_score = level_scores[level_index]
